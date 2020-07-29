@@ -10,7 +10,7 @@ namespace SimpleTaskOrganizer
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new TasksViewPage());
         }
 
         protected override void OnStart()

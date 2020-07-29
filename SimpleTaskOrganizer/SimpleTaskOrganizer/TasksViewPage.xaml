@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             Title="Your tasks"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SimpleTaskOrganizer.TasksViewPage"
+             BackgroundColor="#696969">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <AbsoluteLayout
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+                <Button 
+                    x:Name="AddTaskButton" 
+                    Text="+" CornerRadius="25" FontAttributes="Bold" FontSize="24" TextColor="#2F4F4F" BorderColor="#2F4F4F" BorderWidth="5" BackgroundColor="#D3D3D3"
+                    AbsoluteLayout.LayoutBounds="0.05,0.05,64,64" AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Clicked="AddTaskButton_Clicked"></Button>
+            </AbsoluteLayout>
+            
+            
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
