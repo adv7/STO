@@ -31,9 +31,21 @@ namespace SimpleTaskOrganizer
 
         async private void AddTaskButton_Clicked(object sender, EventArgs e)
         {
-            var task = new Task(TaskDescription.Text, (byte)PrioritySlider.Value);
+            if (String.IsNullOrWhiteSpace(TaskDescription.Text))
+            {
+                TaskDescriptionInfo.IsVisible = false;
+                TaskDescriptionEmptyValidation.IsVisible = true;
+            }
+            else
+            {
+                await App.DbTaskListController.SaveTaskAsync(new Task
+                {
+                    _description = TaskDescription.Text,
+                    _prioriyty = (byte)PrioritySlider.Value
+                });
 
-            await Navigation.PopAsync();
+                await Navigation.PopAsync();
+            }
         }
     }
 }

@@ -16,7 +16,12 @@
                 <Editor 
                     x:Name="TaskDescription"
                     TextColor="Black" Placeholder="Task desription" PlaceholderColor="Black" BackgroundColor="#D3D3D3" MaxLength="255" HeightRequest="255"></Editor>
-                <Label Text="Enter task description above (255 signs limit)" TextColor="#D3D3D3" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                <Label 
+                    x:Name="TaskDescriptionInfo" IsVisible="true"
+                    Text="Enter task description above (255 signs limit)" TextColor="#D3D3D3" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                <Label
+                    x:Name="TaskDescriptionEmptyValidation" IsVisible="false"
+                    Text="Please write here something" TextColor="#FF6666" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
 
                 <Label Text="Set task priority on slider" TextColor="#D3D3D3" FontSize="12" VerticalOptions="CenterAndExpand"></Label>
                 <Slider
