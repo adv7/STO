@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +13,8 @@ namespace SimpleTaskOrganizer
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TasksViewPage : ContentPage
     {
+        private int _selectedTaskID;
+
         public TasksViewPage()
         {
             InitializeComponent();
@@ -23,14 +26,21 @@ namespace SimpleTaskOrganizer
             CurrentTaskList.ItemsSource = await App.DbTaskListController.GetTasksAsync();
         }
 
-        async private void AddTaskButton_Clicked(object sender, EventArgs e)
+        private async void AddTaskButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddTaskView());
         }
 
-        private void RemoveTaskButton_Clicked(object sender, EventArgs e)
+        private async void RemoveTaskButton_Clicked(object sender, EventArgs e)
         {
-            App.DbTaskListController.RemoveTaskAsync(4);
+            App.DbTaskListController.RemoveTaskAsync(_selectedTaskID);
+            await Navigation.PushAsync(new WaitingPage());
+        }
+
+        private void CurrentTaskList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var taskInfo = e.SelectedItem as Task;
+            _selectedTaskID = taskInfo.ID;
         }
     }
 }

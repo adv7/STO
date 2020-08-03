@@ -26,22 +26,24 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.05}"
                 Clicked="RemoveTaskButton_Clicked">
             </Button>
+            <!--list of tasks-->
             <StackLayout
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=AddTaskButton, Property=Height, Factor=1, Constant=100}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.55}"
                 Padding="30,0,30,0">
-                
-                <!--sprobowac poprzesylac referencja idki-->
                 <ListView
                     x:Name="CurrentTaskList"
-                    BackgroundColor="#D3D3D3" SeparatorColor="#2F4F4F">
+                    BackgroundColor="#D3D3D3" SeparatorColor="#2F4F4F" HasUnevenRows="True" ItemSelected="CurrentTaskList_ItemSelected" 
+                    VerticalOptions="Fill">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell
-                                TextColor="#2F4F4F"
-                                Text="{Binding _description}"
-                                Detail="{Binding ID}" 
-                            />
+                            <ViewCell Height="50">
+                                <StackLayout BackgroundColor="{Binding}" Orientation="Vertical">
+                                    <Label Text="{Binding _description}" TextColor="#2F4F4F"></Label>
+                                    <Label Text="{Binding _prioriyty}"></Label>
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
