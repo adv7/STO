@@ -13,8 +13,6 @@ namespace SimpleTaskOrganizer
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TasksViewPage : ContentPage
     {
-        private int _selectedTaskID;
-
         public TasksViewPage()
         {
             InitializeComponent();
@@ -31,16 +29,12 @@ namespace SimpleTaskOrganizer
             await Navigation.PushAsync(new AddTaskView());
         }
 
-        private async void RemoveTaskButton_Clicked(object sender, EventArgs e)
+        private async void MenuItemDelete_Clicked(object sender, EventArgs e)
         {
-            App.DbTaskListController.RemoveTaskAsync(_selectedTaskID);
-            await Navigation.PushAsync(new WaitingPage());
-        }
+            var taskInfo = (sender as MenuItem).CommandParameter as Task;
+            App.DbTaskListController.RemoveTaskAsync(taskInfo.ID);
 
-        private void CurrentTaskList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var taskInfo = e.SelectedItem as Task;
-            _selectedTaskID = taskInfo.ID;
+            await Navigation.PushAsync(new WaitingPage());
         }
     }
 }

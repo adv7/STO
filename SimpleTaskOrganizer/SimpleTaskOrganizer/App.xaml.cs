@@ -25,7 +25,7 @@ namespace SimpleTaskOrganizer
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TasksViewPage());
+            MainPage = new NavigationPage(new TabbedMainPage());
         }
 
         protected override void OnStart()
