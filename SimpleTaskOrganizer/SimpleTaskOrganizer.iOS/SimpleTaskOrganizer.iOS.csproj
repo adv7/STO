@@ -136,4 +136,7 @@
       <Name>SimpleTaskOrganizer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\plus_48x48.png" />
+  </ItemGroup>
 </Project>

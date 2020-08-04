@@ -4,10 +4,19 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:converters="clr-namespace:SimpleTaskOrganizer"
              mc:Ignorable="d"
              x:Class="SimpleTaskOrganizer.TasksViewPage"
-             BackgroundColor="#696969">
+             BackgroundColor="#202020">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:PriorityColorSetter x:Key="PriorityColorSetter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="plus_48x48.png" Order="Primary" Priority="0" Clicked="AddTaskButton_Clicked" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RelativeLayout>
             <!--list of tasks-->
@@ -16,15 +25,15 @@
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
                 <ListView
                     x:Name="CurrentTaskList"
-                    BackgroundColor="#D3D3D3" SeparatorColor="#2F4F4F" HasUnevenRows="True"
+                    BackgroundColor="#202020" SeparatorColor="#202020" HasUnevenRows="True"
                     VerticalOptions="Fill">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell Height="50">
-                                <StackLayout BackgroundColor="{Binding }" Orientation="Vertical">
-                                    <Label Text="{Binding _description}" TextColor="#2F4F4F"></Label>
-                                    <Label Text="{Binding _prioriyty}"></Label>
-                                </StackLayout>
+                            <ViewCell Height="80">
+                                <Label 
+                                    Text="{Binding _description}" TextColor="#202020" FontSize="16" Padding="20,0,20,0" Margin="20,5,20,5"
+                                    BackgroundColor="{Binding _prioriyty, Converter={StaticResource Key=PriorityColorSetter}}">
+                                </Label>
                                 <ViewCell.ContextActions>
                                     <MenuItem Text="Edit" CommandParameter="{Binding .}"></MenuItem>
                                     <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItemDelete_Clicked" CommandParameter="{Binding .}"></MenuItem>
@@ -35,7 +44,7 @@
                 </ListView>
             </StackLayout>
             <!--add task button-->
-            <Button 
+            <!--<Button 
                 x:Name="AddTaskButton" 
                 Text="+" CornerRadius="25" FontAttributes="Bold" FontSize="24" TextColor="#2F4F4F" BorderColor="#2F4F4F" BorderWidth="5" BackgroundColor="#D3D3D3"
                 HeightRequest="64" WidthRequest="64"
@@ -43,7 +52,7 @@
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}"
                 Clicked="AddTaskButton_Clicked">
-            </Button>
+            </Button>-->
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

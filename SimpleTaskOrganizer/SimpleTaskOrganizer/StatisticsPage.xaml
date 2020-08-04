@@ -6,12 +6,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="SimpleTaskOrganizer.StatisticsPage">
+             x:Class="SimpleTaskOrganizer.StatisticsPage"
+             BackgroundColor="#202020">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Statistics page here"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
