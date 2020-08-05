@@ -29,7 +29,7 @@ namespace SimpleTaskOrganizer
             PrioritySlider.Value = newStep * StepValue;
         }
 
-        async private void AddTaskButton_Clicked(object sender, EventArgs e)
+        async private void ConfirmationTaskAdd_Clicked(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(TaskDescription.Text))
             {

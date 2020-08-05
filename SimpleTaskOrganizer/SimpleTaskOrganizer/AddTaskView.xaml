@@ -4,47 +4,49 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              mc:Ignorable="d"
              x:Class="SimpleTaskOrganizer.AddTaskView"
-             BackgroundColor="#696969">
+             BackgroundColor="#202020"
+             Padding="20,20,20,0">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="plus_48x48.png" Order="Primary" Priority="0" Clicked="ConfirmationTaskAdd_Clicked" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <AbsoluteLayout Padding="20,0,20,0">
+        <RelativeLayout>
             <StackLayout
+                x:Name="PrioritySetSection"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                
+                <Label Text="Set task priority on slider" TextColor="#C8C8C8" FontSize="12" VerticalOptions="CenterAndExpand"></Label>
+                <!--Priority Slider-->
+                <Slider
+                    x:Name="PrioritySlider"
+                    Maximum="5" Minimum="1" Value="3" MaximumTrackColor="#D3D3D3" MinimumTrackColor="#B80F0A"
+                    ValueChanged="PrioritySlider_ValueChanged">
+                </Slider>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Task priority: " TextColor="#C8C8C8"></Label>
+                    <Label Text="{Binding Source={x:Reference PrioritySlider}, Path=Value, StringFormat='{0:N0}'}" TextColor="#C8C8C8"></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=PrioritySetSection, Property=Height, Constant=30}"
                 VerticalOptions="Center"
-                AbsoluteLayout.LayoutBounds="0,0.15,1,355" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional">
+                >
                 <Editor 
                     x:Name="TaskDescription"
                     TextColor="Black" Placeholder="Task desription" PlaceholderColor="Black" BackgroundColor="#D3D3D3" MaxLength="255" HeightRequest="255"></Editor>
                 <Label 
                     x:Name="TaskDescriptionInfo" IsVisible="true"
-                    Text="Enter task description above (255 signs limit)" TextColor="#D3D3D3" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                    Text="Enter task description above (255 signs limit)" TextColor="#C8C8C8" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                <!--Editor field validation-->
                 <Label
                     x:Name="TaskDescriptionEmptyValidation" IsVisible="false"
-                    Text="Please write here something" TextColor="#FF6666" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
-
-                <Label Text="Set task priority on slider" TextColor="#D3D3D3" FontSize="12" VerticalOptions="CenterAndExpand"></Label>
-                <Slider
-                x:Name="PrioritySlider"
-                Maximum="5" Minimum="1" Value="3" MaximumTrackColor="#D3D3D3" MinimumTrackColor="#B80F0A"
-                ValueChanged="PrioritySlider_ValueChanged">
-                </Slider>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="Task priority: " TextColor="#D3D3D3"></Label>
-                    <Label Text="{Binding Source={x:Reference PrioritySlider}, Path=Value, StringFormat='{0:N0}'}" TextColor="#D3D3D3"></Label>
-                </StackLayout>
+                    Text="Required field*" TextColor="#FF6666" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
             </StackLayout>
-            
-            <StackLayout
-                VerticalOptions="Center"
-                AbsoluteLayout.LayoutBounds="0,1,1,100" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional">
-                <Button 
-                    x:Name="AddTaskButton"
-                    Text="Add new task" CornerRadius="25" FontAttributes="Bold" FontSize="24" TextColor="#2F4F4F" BorderColor="#2F4F4F" BorderWidth="5" BackgroundColor="#D3D3D3"
-                    Clicked="AddTaskButton_Clicked">
-                </Button>
-            </StackLayout>
-        </AbsoluteLayout>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

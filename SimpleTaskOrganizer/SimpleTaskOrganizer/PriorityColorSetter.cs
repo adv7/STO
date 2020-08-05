@@ -28,7 +28,7 @@ namespace SimpleTaskOrganizer
                 case 5:
                     return _priorityBackGroundColor[4];
                 default:
-                    return _priorityBackGroundColor[0];
+                    throw new ArgumentException("WARN: Invalid priority value.");
             }
         }
 
