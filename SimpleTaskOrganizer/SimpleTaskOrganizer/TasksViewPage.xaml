@@ -35,7 +35,7 @@
                                     BackgroundColor="{Binding _prioriyty, Converter={StaticResource Key=PriorityColorSetter}}">
                                 </Label>
                                 <ViewCell.ContextActions>
-                                    <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItemDelete_Clicked" CommandParameter="{Binding .}"></MenuItem>
+                                    <MenuItem IconImageSource="icons8_delete_bin_64.png" IsDestructive="True" Clicked="MenuItemDelete_Clicked" CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
                             </ViewCell>
                         </DataTemplate>

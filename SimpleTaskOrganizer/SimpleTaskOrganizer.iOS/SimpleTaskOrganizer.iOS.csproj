@@ -142,4 +142,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\icons8_checked_64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons8_delete_bin_64.png" />
+  </ItemGroup>
 </Project>

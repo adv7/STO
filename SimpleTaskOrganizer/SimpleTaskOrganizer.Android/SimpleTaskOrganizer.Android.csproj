@@ -94,7 +94,9 @@
       <Name>SimpleTaskOrganizer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icons8_delete_bin_64.png" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icons8_plus_64.png" />
   </ItemGroup>
