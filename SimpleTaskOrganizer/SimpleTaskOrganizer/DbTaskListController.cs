@@ -28,9 +28,14 @@ namespace SimpleTaskOrganizer
             return db_tasks.InsertAsync(task);
         }
 
-        public void RemoveTaskAsync(int id)
+        public Task<int> UpdateTaskAsync(Task task)
         {
-            db_tasks.DeleteAsync<Task>(id);
+            return db_tasks.UpdateAsync(task);
+        }
+
+        public Task<int> RemoveTaskAsync(Task task)
+        {
+            return db_tasks.DeleteAsync(task);
         }
     }
 }

@@ -4,31 +4,31 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="SimpleTaskOrganizer.AddTaskView"
+             x:Class="SimpleTaskOrganizer.AddTaskPage"
              BackgroundColor="#202020"
              Padding="20,20,20,0">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="plus_48x48.png" Order="Primary" Priority="0" Clicked="ConfirmationTaskAdd_Clicked" ></ToolbarItem>
+        <ToolbarItem IconImageSource="icons8_checked_64.png" Order="Primary" Priority="0" Clicked="ConfirmationTaskAdd_Clicked" ></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RelativeLayout>
             <StackLayout
                 x:Name="PrioritySetSection"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                
-                <Label Text="Set task priority on slider" TextColor="#C8C8C8" FontSize="12" VerticalOptions="CenterAndExpand"></Label>
+
+                <Label Text="Set task priority on slider" TextColor="White" FontSize="12" VerticalOptions="CenterAndExpand"></Label>
                 <!--Priority Slider-->
                 <Slider
                     x:Name="PrioritySlider"
-                    Maximum="5" Minimum="1" Value="3" MaximumTrackColor="#D3D3D3" MinimumTrackColor="#B80F0A"
+                    Maximum="5" Minimum="1" Value="3" MaximumTrackColor="White" MinimumTrackColor="#B80F0A"
                     ValueChanged="PrioritySlider_ValueChanged">
                 </Slider>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="Task priority: " TextColor="#C8C8C8"></Label>
-                    <Label Text="{Binding Source={x:Reference PrioritySlider}, Path=Value, StringFormat='{0:N0}'}" TextColor="#C8C8C8"></Label>
+                    <Label Text="Task priority: " TextColor="White"></Label>
+                    <Label Text="{Binding Source={x:Reference PrioritySlider}, Path=Value, StringFormat='{0:N0}'}" TextColor="White"></Label>
                 </StackLayout>
             </StackLayout>
             <StackLayout
@@ -41,7 +41,7 @@
                     TextColor="Black" Placeholder="Task desription" PlaceholderColor="Black" BackgroundColor="#D3D3D3" MaxLength="255" HeightRequest="255"></Editor>
                 <Label 
                     x:Name="TaskDescriptionInfo" IsVisible="true"
-                    Text="Enter task description above (255 signs limit)" TextColor="#C8C8C8" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                    Text="Enter task description above (255 signs limit)" TextColor="White" FontSize="12" VerticalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
                 <!--Editor field validation-->
                 <Label
                     x:Name="TaskDescriptionEmptyValidation" IsVisible="false"

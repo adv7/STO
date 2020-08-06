@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="plus_48x48.png" Order="Primary" Priority="0" Clicked="AddTaskButton_Clicked" ></ToolbarItem>
+        <ToolbarItem IconImageSource="icons8_plus_64.png" Order="Primary" Priority="0" Clicked="AddTaskButton_Clicked" ></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RelativeLayout>
@@ -25,7 +25,7 @@
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
                 <ListView
                     x:Name="CurrentTaskList"
-                    BackgroundColor="#202020" SeparatorColor="#202020" HasUnevenRows="True"
+                    BackgroundColor="#202020" SeparatorColor="#202020" HasUnevenRows="True" ItemSelected="CurrentTaskList_ItemSelected"
                     VerticalOptions="Fill">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -35,7 +35,6 @@
                                     BackgroundColor="{Binding _prioriyty, Converter={StaticResource Key=PriorityColorSetter}}">
                                 </Label>
                                 <ViewCell.ContextActions>
-                                    <MenuItem Text="Edit" CommandParameter="{Binding .}"></MenuItem>
                                     <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItemDelete_Clicked" CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
                             </ViewCell>

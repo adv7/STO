@@ -89,13 +89,17 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\plus_48x48.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SimpleTaskOrganizer\SimpleTaskOrganizer.csproj">
       <Project>{C14E00C8-2D64-4851-9CCC-C9DCAE697C0E}</Project>
       <Name>SimpleTaskOrganizer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icons8_plus_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icons8_checked_64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

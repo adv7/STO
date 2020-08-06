@@ -10,16 +10,23 @@ using Xamarin.Forms.Xaml;
 namespace SimpleTaskOrganizer
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddTaskView : ContentPage
+    public partial class EditTaskPage : ContentPage
     {
-        public AddTaskView()
+        private Task _task;
+
+        public EditTaskPage(Task task)
         {
             InitializeComponent();
+
+            _task = task;
         }
 
-        async private void BackButton_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            await Navigation.PopAsync();
+            base.OnAppearing();
+
+            PrioritySlider.Value = _task._prioriyty;
+            TaskDescription.Text = _task._description;
         }
 
         private void PrioritySlider_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -29,7 +36,7 @@ namespace SimpleTaskOrganizer
             PrioritySlider.Value = newStep * StepValue;
         }
 
-        async private void ConfirmationTaskAdd_Clicked(object sender, EventArgs e)
+        private async void ConfirmationTaskEdit_Clicked(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(TaskDescription.Text))
             {
@@ -38,11 +45,10 @@ namespace SimpleTaskOrganizer
             }
             else
             {
-                await App.DbTaskListController.SaveTaskAsync(new Task
-                {
-                    _description = TaskDescription.Text,
-                    _prioriyty = (byte)PrioritySlider.Value
-                });
+                _task._description = TaskDescription.Text;
+                _task._prioriyty = (byte)PrioritySlider.Value;
+
+                await App.DbTaskListController.UpdateTaskAsync(_task);
 
                 await Navigation.PopAsync();
             }

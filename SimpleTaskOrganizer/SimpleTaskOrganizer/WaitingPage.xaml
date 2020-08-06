@@ -9,7 +9,7 @@
              Opacity="0.25">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Processing. Please wait." TextColor="#D3D3D3"
+            <Label Text="Processing. Please wait." TextColor="White"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

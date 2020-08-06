@@ -16,8 +16,8 @@ namespace SimpleTaskOrganizer
         {
             InitializeComponent();
 
-            this.BarBackgroundColor = Color.FromHex("#C8C8C8");
-            this.BarTextColor = Color.FromHex("#202020");
+            this.BarBackgroundColor = Color.White;
+            this.BarTextColor = Color.FromHex("#696969");
             this.Children.Add(new TasksViewPage());
             this.Children.Add(new StatisticsPage());
         }

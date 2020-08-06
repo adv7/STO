@@ -137,6 +137,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\plus_48x48.png" />
+    <BundleResource Include="Resources\icons8_plus_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons8_checked_64.png" />
   </ItemGroup>
 </Project>

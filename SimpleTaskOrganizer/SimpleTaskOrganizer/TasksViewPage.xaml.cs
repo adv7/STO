@@ -26,15 +26,22 @@ namespace SimpleTaskOrganizer
 
         private async void AddTaskButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddTaskView());
+            await Navigation.PushAsync(new AddTaskPage());
         }
 
         private async void MenuItemDelete_Clicked(object sender, EventArgs e)
         {
             var taskInfo = (sender as MenuItem).CommandParameter as Task;
-            App.DbTaskListController.RemoveTaskAsync(taskInfo.ID);
+            await App.DbTaskListController.RemoveTaskAsync(taskInfo);
 
             await Navigation.PushAsync(new WaitingPage());
+        }
+
+        private async void CurrentTaskList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var taskInfo = e.SelectedItem as Task;
+
+            await Navigation.PushAsync(new EditTaskPage(taskInfo));
         }
     }
 }

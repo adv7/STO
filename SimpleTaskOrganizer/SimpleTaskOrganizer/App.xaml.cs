@@ -29,7 +29,7 @@ namespace SimpleTaskOrganizer
             MainPage = new NavigationPage(new TabbedMainPage())
             {
                 BarBackgroundColor = Color.FromHex("#202020"),
-                BarTextColor = Color.FromHex("#C8C8C8")
+                BarTextColor = Color.White
             };
         }
 

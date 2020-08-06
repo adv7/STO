@@ -17,7 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AddTaskView.xaml">
+    <EmbeddedResource Update="AddTaskPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EditTaskPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="StatisticsPage.xaml">
