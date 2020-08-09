@@ -43,5 +43,16 @@ namespace SimpleTaskOrganizer
 
             await Navigation.PushAsync(new EditTaskPage(taskInfo));
         }
+
+        private async void TaskComplitedButton_Clicked(object sender, EventArgs e)
+        {
+            var taskInfo = (sender as Button).CommandParameter as Task;
+
+            taskInfo._isCompleted = true;
+            taskInfo._completedDateTime = DateTime.Now;
+            await App.DbTaskListController.UpdateTaskAsync(taskInfo);
+
+            await Navigation.PushAsync(new WaitingPage());
+        }
     }
 }

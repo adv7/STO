@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="icons8_plus_64.png" Order="Primary" Priority="0" Clicked="AddTaskButton_Clicked" ></ToolbarItem>
+        <ToolbarItem IconImageSource="icons8_plus_64.png" Order="Primary" Priority="0" Clicked="AddTaskButton_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RelativeLayout>
@@ -29,11 +29,25 @@
                     VerticalOptions="Fill">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell Height="80">
-                                <Label 
-                                    Text="{Binding _description}" TextColor="#202020" FontSize="16" Padding="20,0,20,0" Margin="20,5,20,5"
+                            <ViewCell>
+                                <StackLayout 
+                                    Orientation="Horizontal"
+                                    Padding="20,0,20,0" Margin="20,5,20,5"
                                     BackgroundColor="{Binding _prioriyty, Converter={StaticResource Key=PriorityColorSetter}}">
-                                </Label>
+                                    <Label
+                                        Padding="0,5,0,5"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding _description}" TextColor="#202020" FontSize="16">
+                                    </Label>
+                                    <Label Text="{Binding _completedDateTime}"></Label>
+                                    <!--<Label Text="{Binding _isCompleted}"></Label>-->
+                                    <Button 
+                                        x:Name="TaskComplitedButton"
+                                        ImageSource="icons8_checked_checkbox_32.png" VerticalOptions="Center"
+                                        HeightRequest="48" WidthRequest="48" Margin="0,10,0,10"
+                                        BackgroundColor="{Binding _prioriyty, Converter={StaticResource Key=PriorityColorSetter}}"
+                                        Clicked="TaskComplitedButton_Clicked" CommandParameter="{Binding .}"></Button>
+                                </StackLayout>
                                 <ViewCell.ContextActions>
                                     <MenuItem IconImageSource="icons8_delete_bin_64.png" IsDestructive="True" Clicked="MenuItemDelete_Clicked" CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
