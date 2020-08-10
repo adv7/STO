@@ -39,7 +39,7 @@
                                         HorizontalOptions="StartAndExpand"
                                         Text="{Binding _description}" TextColor="#202020" FontSize="16">
                                     </Label>
-                                    <Label Text="{Binding _completedDateTime}"></Label>
+                                    <!--<Label Text="{Binding _completedDateTime}"></Label>-->
                                     <!--<Label Text="{Binding _isCompleted}"></Label>-->
                                     <Button 
                                         x:Name="TaskComplitedButton"
@@ -56,16 +56,6 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <!--add task button-->
-            <!--<Button 
-                x:Name="AddTaskButton" 
-                Text="+" CornerRadius="25" FontAttributes="Bold" FontSize="24" TextColor="#2F4F4F" BorderColor="#2F4F4F" BorderWidth="5" BackgroundColor="#D3D3D3"
-                HeightRequest="64" WidthRequest="64"
-                HorizontalOptions="Center"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}"
-                Clicked="AddTaskButton_Clicked">
-            </Button>-->
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

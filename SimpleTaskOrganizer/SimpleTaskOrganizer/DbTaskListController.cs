@@ -18,9 +18,14 @@ namespace SimpleTaskOrganizer
             db_tasks.CreateTableAsync<Task>().Wait();
         }
 
-        public Task<List<Task>> GetTasksAsync()
+        public Task<List<Task>> GetUnfinishedTasksAsync()
         {
-            return db_tasks.Table<Task>().ToListAsync();
+            return db_tasks.Table<Task>().Where(task => task._isCompleted == false || task._isCompleted == null).ToListAsync();
+        }
+
+        public int GetNumberOfFinishedTaskInTime()
+        {
+            return db_tasks.Table<Task>().Where(task => task._isCompleted == true).ToListAsync().Result.Count;
         }
 
         public Task<int> SaveTaskAsync(Task task)

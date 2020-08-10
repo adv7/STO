@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
@@ -20,8 +21,8 @@ namespace SimpleTaskOrganizer
 
         protected override async void OnAppearing()
         {
+            CurrentTaskList.ItemsSource = await App.DbTaskListController.GetUnfinishedTasksAsync();
             base.OnAppearing();
-            CurrentTaskList.ItemsSource = await App.DbTaskListController.GetTasksAsync();
         }
 
         private async void AddTaskButton_Clicked(object sender, EventArgs e)
