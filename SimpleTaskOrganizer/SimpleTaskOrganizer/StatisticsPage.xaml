@@ -22,8 +22,7 @@
             <StackLayout
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=StatisticsSum, Property=Height, Constant=20}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <forms:ChartView x:Name="Chart1"  
-                               HeightRequest="150"/>
+                <forms:ChartView x:Name="Chart1" HeightRequest="400"/>
             </StackLayout>
         </RelativeLayout>
     </ContentPage.Content>

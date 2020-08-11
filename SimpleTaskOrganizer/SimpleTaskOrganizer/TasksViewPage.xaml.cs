@@ -21,7 +21,17 @@ namespace SimpleTaskOrganizer
 
         protected override async void OnAppearing()
         {
-            CurrentTaskList.ItemsSource = await App.DbTaskListController.GetUnfinishedTasksAsync();
+            if (App.DbTaskListController.GetUnfinishedTasksAsync().Result.Count == 0)
+            {
+                CurrentTaskList.IsVisible = false;
+                NoTaskView.IsVisible = true;
+            }
+            else
+            {
+                CurrentTaskList.ItemsSource = await App.DbTaskListController.GetUnfinishedTasksAsync();
+                CurrentTaskList.IsVisible = true;
+                NoTaskView.IsVisible = false;
+            }
             base.OnAppearing();
         }
 
@@ -50,7 +60,7 @@ namespace SimpleTaskOrganizer
             var taskInfo = (sender as Button).CommandParameter as Task;
 
             taskInfo._isCompleted = true;
-            taskInfo._completedDateTime = DateTime.Now;
+            taskInfo._completedDate = DateTime.Today;
             await App.DbTaskListController.UpdateTaskAsync(taskInfo);
 
             await Navigation.PushAsync(new WaitingPage());

@@ -25,12 +25,14 @@ namespace SimpleTaskOrganizer
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new AddTaskView());
             MainPage = new NavigationPage(new TabbedMainPage())
             {
                 BarBackgroundColor = Color.FromHex("#202020"),
                 BarTextColor = Color.White
             };
+
+            // DB TASKS CLEANER
+            //DbTaskListController.ClearTableAsync();
         }
 
         protected override void OnStart()

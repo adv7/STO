@@ -23,9 +23,15 @@
             <StackLayout
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+                <StackLayout
+                    x:Name="NoTaskView"
+                    IsVisible="false" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label Text="You don't have any tasks." TextColor="White" FontSize="16" HorizontalOptions="Center"></Label>
+                    <Label Text="Click plus button above to add firstone." TextColor="White" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
                 <ListView
                     x:Name="CurrentTaskList"
-                    BackgroundColor="#202020" SeparatorColor="#202020" HasUnevenRows="True" ItemSelected="CurrentTaskList_ItemSelected"
+                    IsVisible="true" BackgroundColor="#202020" SeparatorColor="#202020" HasUnevenRows="True" ItemSelected="CurrentTaskList_ItemSelected"
                     VerticalOptions="Fill">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -39,7 +45,7 @@
                                         HorizontalOptions="StartAndExpand"
                                         Text="{Binding _description}" TextColor="#202020" FontSize="16">
                                     </Label>
-                                    <!--<Label Text="{Binding _completedDateTime}"></Label>-->
+                                    <!--<Label Text="{Binding _completedDate}"></Label>-->
                                     <!--<Label Text="{Binding _isCompleted}"></Label>-->
                                     <Button 
                                         x:Name="TaskComplitedButton"
