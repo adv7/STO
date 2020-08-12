@@ -22,7 +22,7 @@ namespace SimpleTaskOrganizer
 
         public Task<List<Task>> GetUnfinishedTasksAsync()
         {
-            return db_tasks.Table<Task>().Where(task => task._isCompleted == false || task._isCompleted == null).ToListAsync();
+            return db_tasks.Table<Task>().Where(task => task._isCompleted == false).ToListAsync();
         }
 
         public int GetNumberOfFinishedTaskInDate(DateTime date)

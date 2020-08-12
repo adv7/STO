@@ -57,13 +57,16 @@ namespace SimpleTaskOrganizer
 
         private async void TaskComplitedButton_Clicked(object sender, EventArgs e)
         {
-            var taskInfo = (sender as Button).CommandParameter as Task;
+            var response = await DisplayAlert("Warning", "Are you sure it's complited?", "Yes", "No");
+            if (response)
+            {
+                var taskInfo = (sender as Button).CommandParameter as Task;
+                taskInfo._isCompleted = true;
+                taskInfo._completedDate = DateTime.Today;
+                await App.DbTaskListController.UpdateTaskAsync(taskInfo);
 
-            taskInfo._isCompleted = true;
-            taskInfo._completedDate = DateTime.Today;
-            await App.DbTaskListController.UpdateTaskAsync(taskInfo);
-
-            await Navigation.PushAsync(new WaitingPage());
+                await Navigation.PushAsync(new WaitingPage());
+            }
         }
     }
 }

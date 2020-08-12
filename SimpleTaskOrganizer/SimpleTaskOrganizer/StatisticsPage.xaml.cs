@@ -42,7 +42,7 @@ namespace SimpleTaskOrganizer
 
                 entries.Add(new Entry(App.DbTaskListController.GetNumberOfFinishedTaskInDate(showedDay))
                 {
-                    Label = dayDate.AddDays(-i).ToString("yyyy-MM-dd"),
+                    Label = dayDate.AddDays(-i).ToString("dd/MM"),
                     Color = SKColor.Parse("#202020"),
                     ValueLabel = App.DbTaskListController.GetNumberOfFinishedTaskInDate(showedDay).ToString()
                 });

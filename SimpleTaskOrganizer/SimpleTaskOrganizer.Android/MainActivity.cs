@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace SimpleTaskOrganizer.Droid
 {
-    [Activity(Label = "SimpleTaskOrganizer", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize)]
+    [Activity(Label = "SimpleTaskOrganizer", Icon = "@mipmap/sto_icon", Theme = "@style/MainTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
