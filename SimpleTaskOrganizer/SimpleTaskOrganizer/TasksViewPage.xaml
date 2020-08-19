@@ -27,7 +27,7 @@
                     x:Name="NoTaskView"
                     IsVisible="false" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <Label Text="You don't have any tasks." TextColor="White" FontSize="16" HorizontalOptions="Center"></Label>
-                    <Label Text="Click plus button above to add firstone." TextColor="White" FontSize="16" HorizontalOptions="Center"></Label>
+                    <Label Text="Click plus button above to add one." TextColor="White" FontSize="16" HorizontalOptions="Center"></Label>
                 </StackLayout>
                 <ListView
                     x:Name="CurrentTaskList"

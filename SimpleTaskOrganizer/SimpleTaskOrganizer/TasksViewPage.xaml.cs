@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,7 +30,7 @@ namespace SimpleTaskOrganizer
 
         private async void AddTaskButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddTaskPage());
+            await Navigation.PushAsync(new TaskCreator(null));
         }
 
         private async void MenuItemDelete_Clicked(object sender, EventArgs e)
@@ -52,7 +45,7 @@ namespace SimpleTaskOrganizer
         {
             var taskInfo = e.SelectedItem as Task;
 
-            await Navigation.PushAsync(new EditTaskPage(taskInfo));
+            await Navigation.PushAsync(new TaskCreator(taskInfo));
         }
 
         private async void TaskComplitedButton_Clicked(object sender, EventArgs e)
